@@ -1,0 +1,19 @@
+<li id="firststep" data-bind="fadeVisible: isVisible">
+    <h2> Second Step </h2>
+    <div id="checkout-step-title" class="step-content" data-role="content">
+        <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
+
+            <div class="actions-toolbar" style="margin-top: 50px;">
+
+                <div class="primary" style="float: right;">
+                    <button style="font-size: larger;" data-role="opc-continue" type="submit"  class="button action continue primary">
+                        <span>
+                            <!-- ko i18n: 'Next'-->
+                            <!-- /ko -->
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>

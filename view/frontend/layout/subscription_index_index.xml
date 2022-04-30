@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<page layout='1column' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" >
+    <body>
+        <referenceContainer name="content">
+            <block class="Subscription\Products\Block\PageSteps" name="test" cacheable="false" template="Subscription_Products::customer/list.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="types" xsi:type="array">
+                            <item name="form.input" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="provider" xsi:type="string">customerlistProvider</item>
+                                    <item name="deps" xsi:type="array">
+                                        <item name="0" xsi:type="string">customerlistProvider</item>
+                                    </item>
+                                    <item name="template" xsi:type="string">ui/form/field</item>
+                                    <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="components" xsi:type="array">
+                            <item name="customerlist" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+<!--                                <item name="component" xsi:type="string">Subscription_Products/js/view/customer/list</item>-->
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Subscription_Products/list</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="steps" xsi:type="array">
+                                        <item name="component" xsi:type="string">uiComponent</item>
+                                        <item name="displayArea" xsi:type="string">steps</item>
+                                        <item name="children" xsi:type="array">
+                                            <item name="firststep" xsi:type="array">
+                                                <item name="component" xsi:type="string">Subscription_Products/js/view/firststep</item>
+                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="step-config" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="children" xsi:type="array">
+                                                        </item>
+                                                    </item>
+                                                    <item name="customerform" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="deps" xsi:type="array">
+                                                                <item name="0" xsi:type="string">customerlist.steps.firststep.step-config</item>
+                                                                <item name="1" xsi:type="string">customerlistProvider</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="component" xsi:type="string">Subscription_Products/js/view/customer/list</item>
+                                                        <item name="provider" xsi:type="string">customerlistProvider</item>
+                                                        <item name="sortOrder" xsi:type="string">10</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="shipping-address-fieldset" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="deps" xsi:type="array">
+                                                                        <item name="0" xsi:type="string">customerlistProvider</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="displayArea" xsi:type="string">additional-fieldsets</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <!-- The following items override configuration of corresponding address attributes -->
+                                                                    <item name="postcode" xsi:type="array">
+                                                                        <!-- post-code field has custom UI component -->
+                                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/post-code</item>
+                                                                        <item name="validation" xsi:type="array">
+                                                                            <item name="required-entry" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="secondstep" xsi:type="array">
+                                                <item name="component" xsi:type="string">Subscription_Products/js/view/secondstep</item>
+                                                <item name="sortOrder" xsi:type="string">1</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="step-config" xsi:type="array">
+                                                        <item name="component" xsi:type="string">uiComponent</item>
+                                                        <item name="children" xsi:type="array">
+                                                        </item>
+                                                    </item>
+                                                    <item name="customerformsecond" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="deps" xsi:type="array">
+                                                                <item name="0" xsi:type="string">checkout.steps.second-step.step-config</item>
+                                                                <item name="1" xsi:type="string">customerlistProvider</item>
+                                                            </item>
+                                                        </item>
+                                                        <item name="component" xsi:type="string">Subscription_Products/js/view/customer/second</item>
+                                                        <item name="provider" xsi:type="string">customerlistProvider</item>
+                                                        <item name="sortOrder" xsi:type="string">10</item>
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="shipping-address-fieldset" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="deps" xsi:type="array">
+                                                                        <item name="0" xsi:type="string">checkoutProvider</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="displayArea" xsi:type="string">additional-fieldsets</item>
+                                                                <item name="children" xsi:type="array">
+                                                                    <!-- The following items override configuration of corresponding address attributes -->
+                                                                    <item name="postcode" xsi:type="array">
+                                                                        <!-- post-code field has custom UI component -->
+                                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/post-code</item>
+                                                                        <item name="validation" xsi:type="array">
+                                                                            <item name="required-entry" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+<!--                                    <item name="child_a" xsi:type="array">-->
+<!--                                        <item name="sortOrder" xsi:type="string">2</item>-->
+<!--                                        <item name="component" xsi:type="string">Subscription_Products/js/view/customer/list</item>-->
+<!--                                        <item name="config" xsi:type="array">-->
+<!--                                            <item name="template" xsi:type="string">Subscription_Products/customer/child_a</item>-->
+<!--                                        </item>-->
+<!--                                    </item>-->
+<!--                                    <item name="child_b" xsi:type="array">-->
+<!--                                        <item name="sortOrder" xsi:type="string">1</item>-->
+<!--                                        <item name="component" xsi:type="string">Subscription_Products/js/view/customer/list</item>-->
+<!--                                        <item name="config" xsi:type="array">-->
+<!--                                            <item name="template" xsi:type="string">Subscription_Products/customer/child_b</item>-->
+<!--                                        </item>-->
+<!--                                        <item name="displayArea" xsi:type="string">child_b</item>-->
+<!--                                    </item>-->
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

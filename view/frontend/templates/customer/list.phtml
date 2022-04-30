@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var $block Subscription\Products\Block\PageSteps
+ */
+$block->getJsLayout();
+
+?>
+<div id="section" data-bind="scope: 'customerlist'">
+
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#section": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>

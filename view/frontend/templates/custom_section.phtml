@@ -1,0 +1,33 @@
+<div class="aureatelabs-custom-section"data-bind="scope: 'section'">
+    <ul data-bind="foreach: subscriptionproducts().subscribe_items">
+        <img data-bind="attr: {'src': $data.image_url}, src: $data.image_url" />
+        <li data-bind="text: $data.name"></li>
+        <li data-bind="text: $data.price"></li>
+        <li data-bind="text: $data.sku"></li>
+
+        <form id="product_addtocart_form"  data-bind="event:{submit: $parent.submitForm},attr: {'action': $data.cart_url , 'data-product-sku': $data.sku }" data-role="tocart-form" method="post">
+            <input type="hidden" name="product" data-bind="attr:{'value':$data.product_id}">
+            <input type="hidden" name="uenc" data-bind="attr:{'value': $data.cart_url.data.uenc}">
+            <button type="submit"
+                    title="<?= __('Add to Cart'); ?>"
+                    class="action tocart primary">
+                <span><?= __('Add to Cart'); ?></span>
+            </button>
+
+        </form>
+
+    </ul>
+</div>
+<script type="text/x-magento-init">
+    {
+    	"*": {
+        	"Magento_Ui/js/core/app": {
+            	"components": {
+                	"section": {
+                    	"component": "Subscription_Products/js/section"
+                	}
+            	}
+        	}
+    	}
+    }
+</script>
