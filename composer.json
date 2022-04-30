@@ -1,5 +1,5 @@
 {
-  "name": "Subscription/module-Products",
+  "name": "subscription/module-products",
   "description": "Subscription Products for Magento 2",
   "type": "magento2-module",
   "version": "1.0.0",
