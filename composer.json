@@ -2,7 +2,7 @@
   "name": "subscription22/module-products",
   "description": "Subscription Products for Magento 2",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "1.0.2",
     "license": [
         "proprietary"
     ],
